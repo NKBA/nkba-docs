@@ -23,18 +23,26 @@ https://api.nkba.org/oauth/token
 Passing form parameters (x-www-form-urlencoded)
 
 ```
-grant_type: authorization_code
-client_id: <your client id>
-code: <the code received>
-redirect_uri: <the same redirect_uri as above>
+{ 
+  grant_type: authorization_code,
+  client_id: <your client id>
+  code: <the code received>
+  redirect_uri: <the same redirect_uri as above>
+}
 ```
 
 The endpoint will return a JSON document containing:
 
-```{“access_token”:”<token>,”token_type”:”bearer”,”expires_in”:<secs>}```
+```json
+{
+  “access_token”: <token>,
+  ”token_type”: ”bearer”,
+  ”expires_in”: <secs>
+}
+```
 
-You can use the above access_token to make a request to the NKBA API, by passing it as the Authorization header (Authorization: Bearer <token>). Endpoints are documented using Swagger/OpenAPI here: https://api.nkba.org/swagger
+You can use the above `access_token` to make a request to the NKBA API, by passing it as the `Authorization` header (`"Authorization": "Bearer <token>"`). Endpoints are documented using Swagger/OpenAPI here: https://api.nkba.org/swagger
 
 The endpoint you will most likely want to use to retrieve information about the member, such as their email address, is the `/v2/member/me` endpoint documented here: https://api.nkba.org/swagger#!/member/getMe
 
-Just hit that endpoint (https://api.nkba.org/v2/member/me) passing the `access_token` as the Authorization header (` { "Authorization": "Bearer <access_token>" }`, and you’ll retrieve a JSON document containing information such as `email` `address`, `name`, and `number`.
+Just hit that endpoint (https://api.nkba.org/v2/member/me) passing the `access_token` as the `Authorization` header, and you’ll retrieve a JSON document containing information such as `email` `address`, `name`, and `number`.
