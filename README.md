@@ -12,7 +12,7 @@ Provide the NKBA with the Redirect URI. This should be a URL on your site that t
 
 ## Implementation Steps:
 
-Build a login page on your site that has a “Login with NKBA” button. This button should link to the following URL: `https://api.nkba.org/oauth/authorize?response_type=code&client_id=<client_id>&redirect_uri=http://example.com/redirect&scope=member:me`
+Build a login page on your site that has a “Login with NKBA” button. This button should link to the following URL: `https://api.nkba.org/oauth/authorize?response_type=code&client_id=XXXXXXX&redirect_uri=http://example.com/redirect&scope=member:me`
 
 Note: Where the `redirect_uri` is the Redirect URI that you have provided and `client_id` is the client identifier you have been given.
 
