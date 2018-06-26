@@ -24,7 +24,7 @@ Passing form parameters (x-www-form-urlencoded)
 
 ```
 { 
-  grant_type: authorization_code,
+  grant_type: "authorization_code",
   client_id: <your client id>
   code: <the code received>
   redirect_uri: <the same redirect_uri as above>
@@ -33,7 +33,7 @@ Passing form parameters (x-www-form-urlencoded)
 
 The endpoint will return a JSON document containing:
 
-```json
+```
 {
   “access_token”: <token>,
   ”token_type”: ”bearer”,
