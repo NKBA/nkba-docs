@@ -41,12 +41,18 @@ The endpoint will return a JSON document containing:
 }
 ```
 
-You can use the above `access_token` to make a request to the NKBA API, by passing it as the `Authorization` header (`"Authorization": "Bearer <access_token>"`). Endpoints are documented using Swagger/OpenAPI here: https://api.nkba.org/swagger/. For example: 
+You can use the above `access_token` to make a request to the NKBA API, by passing it as the `Authorization` header (`"Authorization": "Bearer <access_token>"`). Endpoints are documented using Swagger/OpenAPI here: https://api.nkba.org/swagger/.
+
+The endpoint you will most likely want to use to retrieve information about the member, such as their email address, is the `/v2/member/me` endpoint documented here: https://api.nkba.org/swagger#!/member/getMe
+
+Just hit that endpoint (https://api.nkba.org/v2/member/me) passing the `access_token` as the `Authorization` header, and you’ll retrieve a JSON document containing information such as `email` `address`, `name`, and `number`.
+
+#### Example
 
 ```js
 // After receiving the access_token from the query string...
 
-var access_token = parseTheQueryString(window.location); // hand waiving
+const access_token = parseTheQueryString(window.location); // hand waiving, use something like qs or query-string to do this
 
 fetch('https://api.nkba.org/v2/member/me', {
   headers: {
@@ -61,9 +67,4 @@ fetch('https://api.nkba.org/v2/member/me', {
 .catch(error => {
   console.log(error)
 })
-
 ```
-
-The endpoint you will most likely want to use to retrieve information about the member, such as their email address, is the `/v2/member/me` endpoint documented here: https://api.nkba.org/swagger#!/member/getMe
-
-Just hit that endpoint (https://api.nkba.org/v2/member/me) passing the `access_token` as the `Authorization` header, and you’ll retrieve a JSON document containing information such as `email` `address`, `name`, and `number`.
