@@ -1,16 +1,14 @@
 # NKBA API Documentation
 
-## NKBA / KBIS OAuth Instructions
+## NKBA OAuth Instructions
 
-The NKBA API uses the industry-standard OAuth 2.0 Authorization Code grant to allow NKBA users to authenticate against the KBIS application.
-
-For detailed information about Oauth and specifically the Authorization Code flow, please refer to references such as https://oauth.net/2/ and https://oauth.net/2/grant-types/authorization-code/
+The NKBA API uses the industry-standard OAuth 2.0 Authorization Code grant type for auth. For detailed information about OAuth and specifically the Authorization Code flow, please refer to references such as https://oauth.net/2/ and https://oauth.net/2/grant-types/authorization-code/
 
 ## Prerequisites:
 
-Provide the NKBA with the Redirect URI. This should be a URL on your site that the user will be redirected to after successfully authenticating with the NKBA.
+Provide the NKBA with the Redirect URI. This should be a URL on your site that the user will be redirected to after successfully authentication with the NKBA.
 
-## Implementation Steps:
+## Using NKBA as a OAuth provider:
 
 Build a login page on your site that has a “Login with NKBA” button. This button should link to the following URL: `https://api.nkba.org/oauth/authorize?response_type=code&client_id=XXXXXXX&redirect_uri=http://example.com/redirect&scope=member:me`
 
